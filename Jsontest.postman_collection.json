@@ -1,0 +1,41 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Jsontest",
+		"_postman_id": "ad454fab-0020-d064-18ef-127215573e6c",
+		"description": "sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/posts/1\n",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 200ms\"] + responseTime < 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"userID : \"+jsonData.userId] = jsonData.userId === 1;\r",
+							"tests[\"ID : \"+jsonData.userId] = jsonData.id === 1;\r",
+							"tests[\"userID : \"+jsonData.userId] = jsonData.userId === 1;\r",
+							"\r",
+							"tests[\"Successful POST request\"]  = responseCode.code ===200 || responseCode.code === 201;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://jsonplaceholder.typicode.com/posts/1\n",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "sample jsontest"
+			},
+			"response": []
+		}
+	]
+}
